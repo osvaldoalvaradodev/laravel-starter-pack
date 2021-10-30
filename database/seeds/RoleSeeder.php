@@ -31,5 +31,13 @@ class RoleSeeder extends Seeder
         ]);
 
         $user->assignRole('root');
+
+        $user = User::create([
+            'name' => 'Roberto Sierra',
+            'email' => 'programador@gmail.com',
+            'password' => bcrypt('usuario')
+        ]);
+
+        $user->assignRole('root');
     }
 }
