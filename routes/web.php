@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboards.home');
+});
+
+Route::get('config/users', function () {
+    return view('users.list');
 });
