@@ -3,13 +3,13 @@
 @section('content')
     <div>
         <div class="container pt-3">
-            <h1>
+            <h2>
                 @if ($user->id)
                     <i class="material-icons fs-1">description</i>Detalles de Usuario
                 @else
                     <i class="material-icons fs-1">add_box</i>Agregar Usuario
                 @endif
-            </h1>
+            </h2>
             <form method="post" action="{{url('config/users/store')}}">
                 {{csrf_field()}}
                 <input type="hidden" name="id" value="{{ $user->id }}">
