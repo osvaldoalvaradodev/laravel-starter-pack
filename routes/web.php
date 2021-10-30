@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('dashboards.home');
 });
 
-Route::get('config/users', function () {
-    return view('users.list');
-});
+
+//Rutas de Usuarios
+Route::get('config/users'                           , 'UserController@list')->name('users.list');
+Route::get('config/users/getdata'                   , 'UserController@getdata');
+Route::get('config/users/add'                       , 'UserController@add');
+Route::get('config/users/{user_id}'                 , 'UserController@edit');
+
+Route::post('config/users/store'                    , 'UserController@store');
