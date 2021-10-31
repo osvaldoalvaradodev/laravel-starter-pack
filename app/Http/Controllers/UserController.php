@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Hash;
+use Session;
+
 use App\User;
 
 use Illuminate\Http\Request;
@@ -87,6 +89,44 @@ class UserController extends Controller
         }else{
             return back()->with('error','La clave antigua no corresponde')->withInput();
         }
+    }
+
+    public function home(){
+        if(Auth::user()){
+            return view('dashboards.home');
+        }else{
+            return view('templates.login');
+        }
+    }
+
+    public function checkLogin(Request $request){
+
+        $this->validate($request,[
+            'email' => 'required|email',
+            'password' => 'required|min:3'
+        ]);
+
+        $user_data = array (
+            'email' => $request->get('email'),
+            'password' => $request->get('password'),
+        );
+
+        if(Auth::attempt(['email' => $user_data['email'], 'password' => $user_data['password'], 'enabled' => 1])){
+            $message="[Login] Successfully El usuario ". Auth::user()->email." a iniciado sesión correctamente";
+            if(COUNT(Auth::user()->companies)>1){
+                $companys = Auth::user()->companies;
+                return view('companyselection',compact('companys'));;
+            }else{
+                $company = Auth::user()->companies[0];
+                session(['company' => $company]);
+                return redirect('/tables');
+            }
+        }
+
+        else{
+            return back()->with('error','Error en las credenciales');
+        }
+
     }
 
     function logout()
