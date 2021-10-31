@@ -25,3 +25,8 @@ Route::get('config/users/add'                       , 'UserController@add');
 Route::get('config/users/{user_id}'                 , 'UserController@edit');
 
 Route::post('config/users/store'                    , 'UserController@store');
+
+//Rutas Sesion
+Route::get('sesion/changepassword'                 , 'UserController@changePassword');
+Route::post('sesion/changepassword/process'         , 'UserController@changePasswordProcess');
+Route::get('sesion/close'                          , 'UserController@changepassword');

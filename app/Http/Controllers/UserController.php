@@ -66,13 +66,13 @@ class UserController extends Controller
         }
     }
 
-    public function passwordchange(){
+    public function changePassword(){
         //busca el usuario en la bd
         $user = Auth::user();
         return view('users.passwordchange' , compact('user'));
     }
 
-    public function passwordchangeProcess(Request $request){
+    public function changePasswordProcess(Request $request){
 
         $user = Auth::user();
         $oldpassword = $request->oldpassword;
@@ -87,5 +87,11 @@ class UserController extends Controller
         }else{
             return back()->with('error','La clave antigua no corresponde')->withInput();
         }
+    }
+
+    function logout()
+    {
+        Auth::logout();
+        return redirect(url('/'));
     }
 }
