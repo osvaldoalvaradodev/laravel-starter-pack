@@ -22,22 +22,22 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'user_update','description'=>'Permite actualizar Usuarios']);
         Permission::create(['name' => 'user_delete','description'=>'Permite eliminar usuarios']);
 
-        $role->givePermissionTo(['user_create','user_read','user_update']);
+        $role->givePermissionTo(['user_create','user_read','user_update','user_delete']);
 
         $user = User::create([
             'name' => 'Osvaldo Alvarado',
-            'email' => 'usuario@gmail.com',
-            'password' => bcrypt('usuario')
+            'email' => 'programador2@gmail.com',
+            'password' => bcrypt('password')
         ]);
 
-        $user->assignRole('root');
+        //$user->assignRole('root');
 
         $user = User::create([
             'name' => 'Roberto Sierra',
-            'email' => 'programador@gmail.com',
-            'password' => bcrypt('usuario')
+            'email' => 'programador1@gmail.com',
+            'password' => bcrypt('password')
         ]);
 
-        $user->assignRole('root');
+        //$user->assignRole('root');
     }
 }
