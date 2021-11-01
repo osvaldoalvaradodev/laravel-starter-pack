@@ -4,7 +4,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/'                                          , 'MainController@login');
 Route::post('sesion/checklogin'                         , 'MainController@checkLogin');
+
 Route::get('sesion/passwordlost'                        , 'MainController@passwordLost');
+Route::post('sesion/passwordlost/process'               , 'MainController@passwordLostProcess');
+
+Route::get('sesion/passwordreset/{user_id}/token/{token}'           , 'MainController@passwordReset');
+Route::post('sesion/passwordreset/{user_id}/token/{token}/process'  , 'MainController@passwordResetProcess');
 
 //ESTAS RUTAS NECESITAN ESTAR LOGUEADO
 Route::group(['middleware' => ['auth']], function() {
