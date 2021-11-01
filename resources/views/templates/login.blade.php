@@ -24,15 +24,16 @@
                 </div>
                 <div class="col-12 col-sm-6 p-0">
                     <div class="card-body">
-                        <form action="">
+                        <form action="{{url('sesion/login')}}" method="POST">
+                            {{ csrf_field() }}
                             <h4 class="card-title" align="center">Iniciar Sesión</h4>
                             <div class="mb-3">
                                 <label for="login-email" class="form-label">E-mail</label>
-                                <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp">
+                                <input type="email" name="email" class="form-control" id="login-email" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-2">
                                 <label for="login-password" class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" id="login-password" aria-describedby="emailHelp">
+                                <input type="password" name="password" class="form-control" id="login-password" aria-describedby="emailHelp">
                             </div>
                             <div class="mb-4"><a href="#" class="link-light" style="font-size: 0.8rem">Light link</a></div>
                             <button type="submit" class="btn btn-outline-light w-100">
