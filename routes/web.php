@@ -17,7 +17,7 @@ Route::group(['middleware' => ['auth']], function() {
     //Rutas Sesion
     Route::get('sesion/changepassword'                  , 'SesionController@changePassword');
     Route::post('sesion/changepassword/process'         , 'SesionController@changePasswordProcess');
-    Route::get('sesion/close'                           , 'SesionController@changepassword');
+    Route::get('sesion/logout'                          , 'SesionController@logout');
 
     //Rutas de Usuarios
     Route::get('config/users'                           , 'UserController@list')->name('users.list');
