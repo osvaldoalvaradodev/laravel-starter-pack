@@ -15,8 +15,8 @@ Route::post('sesion/passwordreset/{user_id}/token/{token}/process'  , 'SesionCon
 Route::group(['middleware' => ['auth']], function() {
 
     //Rutas Sesion
-    Route::get('sesion/changepassword'                  , 'SesionController@changePassword');
-    Route::post('sesion/changepassword/process'         , 'SesionController@changePasswordProcess');
+    Route::get('sesion/passwordchange'                  , 'SesionController@passwordChange');
+    Route::post('sesion/passwordchange/process'         , 'SesionController@passwordChangeProcess');
     Route::get('sesion/logout'                          , 'SesionController@logout');
 
     //Rutas de Usuarios

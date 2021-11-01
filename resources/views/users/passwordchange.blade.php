@@ -6,7 +6,7 @@
         <h4 class="card-title mb-4">
           <i class="material-icons fs-3">vpn_key</i> Cambiar Contraseña
         </h4>
-        <form method="post" action="{{url('sesion/changepassword/process')}}" id="form">
+        <form method="post" action="{{url('sesion/passwordchange/process')}}" id="form">
         {{csrf_field()}}
         <div class="mb-3">
           <label for="formGroupExampleInput" class="form-label">Contraseña Actual</label>

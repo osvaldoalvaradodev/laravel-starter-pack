@@ -46,13 +46,13 @@ class SesionController extends Controller
     }
 
 
-    public function changePassword(){
+    public function passwordChange(){
         //busca el usuario en la bd
         $user = Auth::user();
         return view('users.passwordchange' , compact('user'));
     }
 
-    public function changePasswordProcess(Request $request){
+    public function passwordChangeProcess(Request $request){
         $user = Auth::user();
         $oldpassword = $request->oldpassword;
 

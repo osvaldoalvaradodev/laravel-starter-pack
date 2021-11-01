@@ -44,7 +44,7 @@
                             <i class="material-icons">manage_accounts</i> Cuenta
                         </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item {{(request()->is('sesion/changepassword')) ? 'active' : '' }}" href="{{ url('sesion/changepassword') }}">Cambiar Contraseña</a></li>
+                                <li><a class="dropdown-item {{(request()->is('sesion/passwordchange')) ? 'active' : '' }}" href="{{ url('sesion/passwordchange') }}">Cambiar Contraseña</a></li>
                                 <li><a class="dropdown-item {{(request()->is('sesion/logout')) ? 'active' : '' }}" href="{{ url('sesion/logout') }}">Cerrar Sesión</a></li>
                             </ul>
                         </li>
