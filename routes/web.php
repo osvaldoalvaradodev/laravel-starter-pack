@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/'                                          , 'SesionController@home');
+Route::get('/'                                          , 'SesionController@home')->name('login');
 Route::post('sesion/login'                              , 'SesionController@login');
 
 Route::get('sesion/passwordlost'                        , 'SesionController@passwordLost');
