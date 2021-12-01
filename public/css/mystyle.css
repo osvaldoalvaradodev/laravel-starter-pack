@@ -1,0 +1,12 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.dropdown-menu-dark .dropdown-item.active, .dropdown-menu-dark .dropdown-item:active {
+    color: #fff;
+    background-color: #ffffff3b;
+}
+
+.material-icons{
+    vertical-align:bottom;
+}
