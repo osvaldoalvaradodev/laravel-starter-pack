@@ -9,25 +9,30 @@
     }
 </style>
 @section('content')
-    <div class="container pt-3">
-        <div class="d-flex justify-content-between align-items-center">
-            <h2><i class="material-icons fs-1">people</i> Lista de Usuarios</h2>
-            <a  href="{{ url('config/users/add')}}" class="btn btn-success">
-                <i class="material-icons">add</i>
-                Agregar Usuario
-            </a>
+    <div class="card">
+        
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2><i class="material-icons fs-1">people</i> Lista de Usuarios</h2>
+                <a  href="{{ url('config/users/add')}}" class="btn btn-success">
+                    <i class="material-icons">add</i>
+                    Agregar Usuario
+                </a>
+            </div>
         </div>
-        <table id="tabla" class="table table-striped table-sm table-bordered bg-white" style="width:100%" >
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>E-mail</th>
-                    <th>Acción</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="card-body">
+            <table id="tabla" class="table table-striped table-sm table-bordered bg-white" style="width:100%" >
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>E-mail</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Modal -->
@@ -80,7 +85,6 @@
                 fixedHeader: {
                     headerOffset: 0
                 },
-                "pageLength": 100,
                 "processing" : true,
                 "serverSide" : true,
                 "ajax" : "{{ url('config/users/getdata') }}",
