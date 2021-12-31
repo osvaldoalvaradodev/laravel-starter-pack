@@ -1,6 +1,6 @@
 @extends('templates.main')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"/>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"/>
 <style>
     #tabla_filter{
         text-align: right;
@@ -77,6 +77,7 @@
 
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.18/af-2.3.3/fc-3.2.5/fh-3.1.4/sc-2.0.0/datatables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script src="{{url('/js/datatable.es.js')}}"></script>
     <script>
         $(document).ready(function() {
@@ -92,12 +93,10 @@
                     { "data": "name","width":"60%"},
                     { "data": "email","width":"40%"},
                     { data: "id", render : function ( data, type, row, meta ) {
-
                         var buttons = '<div class="btn-group" role="group" aria-label="Basic mixed styles example">';
                         buttons+= '<a class="btn btn-primary" href="{{ url("config/users")}}/'+data+'" title="Editar"><i class="material-icons">edit</i></a>';
                         buttons+= '<button type="button" class="btn btn-danger" onclick="deleteShow('+data+')" title="Eliminar"><i class="material-icons">delete</i></button>';
                         buttons+= '</div>';
-
                         return buttons;
                     },"width":"1%"},
                 ],

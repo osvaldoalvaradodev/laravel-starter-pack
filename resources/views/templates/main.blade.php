@@ -85,7 +85,8 @@
                 #sidebar-toggle{
                     display: inline-block;
                 }
-            }            
+            }
+            
             .scroll-style{
                 overflow-y:auto;
             }
@@ -177,7 +178,7 @@
         <nav class="navbar text-white">
             <div class="container-fluid">
                 <div>
-                    <a class="navbar-brand" href="{{ url('/') }}" align="center">L<span class="d-none d-sm-inline">aravel </span>S<span class="d-none d-sm-inline">tarter </span>P<span class="d-none d-sm-inline">ack</span></a>
+                    <a class="navbar-brand text-white" href="{{ url('/') }}" align="center">L<span class="d-none d-sm-inline">aravel </span>S<span class="d-none d-sm-inline">tarter </span>P<span class="d-none d-sm-inline">ack</span></a>
                     <button class="btn text-white float-left" type="button" id="sidebar-toggle">
                         <i class="material-icons">chevron_right</i>
                     </button>
@@ -187,7 +188,7 @@
                         <i class="material-icons">notifications</i>
                     </button>
                     <div class="dropdown-menu p-0 dropdown-menu-end" aria-labelledby="notificaciones">
-                        <div class="card-header text-center text-muted">
+                        <div class="card-header text-center text-muted fs-6">
                             Notificaciones
                         </div>
                         <ul class="list-group scroll-style" style="max-height:30vh;max-width:320px">
