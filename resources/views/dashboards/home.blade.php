@@ -1,34 +1,128 @@
 @extends('templates.main')
 
 @section('content')
-    <div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="material-icons">notifications</i>
-            </button>
-            <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton1">
-                <div class="card-header text-center text-muted">
-                    Notificaciones
-                </div>
-                <ul class="list-group scroll-style" style="max-height:30vh;max-width:320px">
-                    <a class="list-group-item d-flex w-100 justify-content-between">
-                        <i class="material-icons">notifications</i>
-                        <span>
-                            <b>Notificacion</b>
-                            <span>Notificacion</span>
-                        </span>
-                    </a>
-                    <a class="list-group-item d-flex w-100 justify-content-between">
-                        <i class="material-icons">notifications</i>
-                        <span>
-                            notificacion
-                        </span>
-                    </a>
-                </ul>
-                <div class="card-footer text-center text-muted">
-                    Ver todas
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        #chartjs-tooltip{
+            background-color: floralwhite;
+            padding: 5px;
+            border-radius: 10px;
+            font-size:1.2rem;
+        }
+        body{
+            overflow-x: hidden;
+        }
+    </style>
+    <div class="d-flex flex-wrap">
+        <div class="card bg-success text-white m-2" align="center">
+            <div class="card-header">
+                Trabajos realizados
+            </div>
+            <div class="card-body">
+                <h1>10</h1>
+            </div>
+        </div>
+        <div class="card bg-danger text-white m-2" align="center">
+            <div class="card-header">
+                Trabajos realizados
+            </div>
+            <div class="card-body">
+                <h1>10</h1>
+            </div>
+        </div>
+        <div class="card bg-warning text-white m-2" align="center">
+            <div class="card-header">
+                Trabajos realizados
+            </div>
+            <div class="card-body">
+                <h1>10</h1>
+            </div>
+        </div>
+        <div class="card bg-info text-white m-2" align="center">
+            <div class="card-header">
+                Trabajos realizados
+            </div>
+            <div class="card-body">
+                <h1>10</h1>
+            </div>
+        </div>
+        <div class="card bg-ligth text-black m-2" align="center">
+            <div class="card-header">
+                Trabajos realizados
+            </div>
+            <div class="card-body">
+                <canvas id="myChart" width="400" height="100"></canvas>
+            </div>
+        </div>
+
+        <div class="card bg-ligth text-black m-2" align="center">
+            <div class="card-header">
+                Trabajos realizados
+            </div>
+            <div class="card-body">
+                <div class="graf-container-dona" style="position: relative; height:100px; width:100px">
+                    <canvas id="myChart2"></canvas>
                 </div>
             </div>
         </div>
+
     </div>
+    <script src="{{url('/js/chart.options.js')}}"></script>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: 'ventas',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: opcionesBar
+        });
+
+        const ctx2 = document.getElementById('myChart2').getContext('2d');
+        const myChart2 = new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [
+                    {
+                        label: 'Dataset 1',
+                        data: [12, 19, 3, 5, 2, 3],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                    }
+                ]
+            },
+            options: opcionesPie
+        });
+
+
+
+    </script>
 @stop
