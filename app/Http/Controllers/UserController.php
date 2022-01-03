@@ -44,6 +44,7 @@ class UserController extends Controller
                 $user->password = bcrypt($request->password);
             }
             $user->save();
+            activitypush('AGREGA', 'PERSONA AGREGA USUARIO');
             return redirect()->route('users.list')->with('success', 'Usuario editado correctamente');
         }else{
             //Si no, Crea un Item        
@@ -51,6 +52,7 @@ class UserController extends Controller
             $user->fill($request->all());
             $user->password = bcrypt($request->password);
             $user->save();
+            activitypush('EDITA', 'PERSONA EDITA USUARIO');
             return redirect()->route('users.list')->with('success', 'Usuario creado correctamente');
         }
     }
