@@ -78,7 +78,6 @@ var opcionesPie =  {
         legend: {
             display: false,
             labels: {
-                // This more specific font property overrides the global property
                 font: {
                     size: 16
                 }
@@ -91,27 +90,36 @@ var opcionesPie =  {
 var opcionesBar =  {
     scales: {
         y: {
+            display: false,
             beginAtZero: true,
             ticks: {
+                display: false,
                 font: {
                     size: 16,
                 }
+            },
+            grid:{
+                display: false,
             }
         },
         x: {
             ticks: {
+                display: false,
                 font: {
                     size: 16,
                 }
+            },
+            grid:{
+                display: false,
             }
-        }
+        },
     },
     plugins: {
         legend: {
             display: false,
         },
         labels: {
-            // This more specific font property overrides the global property
+            display: false,
             font: {
                 size: 20
             }

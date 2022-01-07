@@ -1,6 +1,5 @@
 @extends('templates.main')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.11.3/b-2.1.1/b-colvis-2.1.1/b-html5-2.1.1/b-print-2.1.1/date-1.1.1/fh-3.2.1/r-2.2.9/datatables.min.css"/>
 <style>
     #tabla_filter{
         text-align: right;
@@ -75,17 +74,33 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jq-3.3.1/dt-1.10.18/af-2.3.3/fc-3.2.5/fh-3.1.4/sc-2.0.0/datatables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.11.3/b-2.1.1/b-colvis-2.1.1/b-html5-2.1.1/b-print-2.1.1/date-1.1.1/fh-3.2.1/r-2.2.9/datatables.min.js"></script>
+    
     <script src="{{url('/js/datatable.es.js')}}"></script>
     <script>
         $(document).ready(function() {
             var table = $('#tabla').DataTable({
-                responsive: true,                
+                responsive: true,          
+                dom: '<"row"<"col-12 mb-2"B><"col-12 col-sm-6"l><"col-12 col-sm-6"f><"col-12"t><"col-12 col-sm-6"i><"col-12 col-sm-6"p>>',
+                buttons: [
+                    {
+                        extend:    'excelHtml5',
+                        text:      '<i class="material-icons">grid_on</i> Excel',
+                        className: 'btn-success',
+                        titleAttr: 'Excel'
+                    },
+                    {
+                        extend:    'pdfHtml5',
+                        text:      '<i class="material-icons">picture_as_pdf</i> Pdf',
+                        className: 'btn-danger',
+                        titleAttr: 'PDF'
+                    }
+                ], 
                 fixedHeader: {
                     headerOffset: 0
-                },
+                },     
                 "processing" : true,
                 "serverSide" : true,
                 "ajax" : "{{ url('config/users/getdata') }}",

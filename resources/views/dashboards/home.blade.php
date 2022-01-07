@@ -12,56 +12,108 @@
         body{
             overflow-x: hidden;
         }
+        .graf-container{
+            display: flex;
+        }
+        .graf-legend{
+            flex-grow: 1;
+        }
+        .graf-dona{
+            position: relative; 
+            height:100px; 
+            width:100px
+        }
+        .graf-bar{
+            position: relative; 
+            height:100px; 
+            width:200px
+        }
+        .row{
+            margin:0;
+            padding: 0;
+        }
+        .col{
+            margin:0;
+            padding: 0;
+        }
     </style>
-    <div class="d-flex flex-wrap">
-        <div class="card bg-success text-white m-2" align="center">
-            <div class="card-header">
-                Trabajos realizados
+    <div>
+        <div class="row">
+            <div class="col ">
+                <div class="card bg-success text-white m-2" align="center">
+                    <div class="card-header">
+                        Trabajos realizados
+                    </div>
+                    <div class="card-body">
+                        <h1>10</h1>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <h1>10</h1>
+            <div class="col ">
+            <div class="card bg-danger text-white m-2" align="center">
+                <div class="card-header">
+                    Trabajos realizados
+                </div>
+                <div class="card-body">
+                    <h1>10</h1>
+                </div>
+            </div>
+            </div>
+            <div class="col ">
+            <div class="card bg-warning text-white m-2" align="center">
+                <div class="card-header">
+                    Trabajos realizados
+                </div>
+                <div class="card-body">
+                    <h1>10</h1>
+                </div>
+            </div>
+            </div>
+            <div class="col ">
+            <div class="card bg-info text-white m-2" align="center">
+                <div class="card-header">
+                    Trabajos realizados
+                </div>
+                <div class="card-body">
+                    <h1>10</h1>
+                </div>
+            </div>
             </div>
         </div>
-        <div class="card bg-danger text-white m-2" align="center">
-            <div class="card-header">
-                Trabajos realizados
+        <div class="row m-0">
+            <div class="col ">
+            <div class="card bg-ligth text-black m-2  col" align="center">
+                <div class="card-header">
+                    Trabajos realizados
+                </div>
+                <div class="card-body">
+                    <div class="graf-container">
+                        <div class="graf-legend">
+                            
+                        </div>
+                        <div class="graf-bar">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <h1>10</h1>
             </div>
-        </div>
-        <div class="card bg-warning text-white m-2" align="center">
-            <div class="card-header">
-                Trabajos realizados
-            </div>
-            <div class="card-body">
-                <h1>10</h1>
-            </div>
-        </div>
-        <div class="card bg-info text-white m-2" align="center">
-            <div class="card-header">
-                Trabajos realizados
-            </div>
-            <div class="card-body">
-                <h1>10</h1>
-            </div>
-        </div>
-        <div class="card bg-ligth text-black m-2" align="center">
-            <div class="card-header">
-                Trabajos realizados
-            </div>
-            <div class="card-body">
-                <canvas id="myChart" width="400" height="100"></canvas>
-            </div>
-        </div>
 
-        <div class="card bg-ligth text-black m-2" align="center">
-            <div class="card-header">
-                Trabajos realizados
-            </div>
-            <div class="card-body">
-                <div class="graf-container-dona" style="position: relative; height:100px; width:100px">
-                    <canvas id="myChart2"></canvas>
+            <div class="col ">
+                <div class="card bg-ligth text-black m-2  col" align="center">
+                    <div class="card-header">
+                        Trabajos realizados
+                    </div>
+                    <div class="card-body">
+                        <div class="graf-container">
+                            <div class="graf-legend">
+                                
+                            </div>
+                            <div class="graf-dona">
+                                <canvas id="myChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,9 +125,8 @@
         const myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
                 datasets: [{
-                    label: 'ventas',
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
