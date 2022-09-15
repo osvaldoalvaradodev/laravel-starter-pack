@@ -87,6 +87,20 @@
                 }
             }
             
+            @media print {
+                #scaffold-body{
+                    padding-left:0px;
+                }
+                
+                #sidebar{
+                    display: none;
+                }
+
+                .navbar{
+                    display: none;
+                }
+            }
+            
             .scroll-style{
                 overflow-y:auto;
             }
