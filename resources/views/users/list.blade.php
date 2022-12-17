@@ -9,8 +9,7 @@
     }
 </style>
 @section('content')
-    <div class="card">
-        
+    <div class="card m-4">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h2><i class="material-icons fs-1">people</i> Lista de Usuarios</h2>

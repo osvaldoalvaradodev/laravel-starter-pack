@@ -1,7 +1,7 @@
 @extends('templates.main')
 
 @section('content')
-    <div>
+    <div class="m-4">
         <div class="container pt-3">
             <div class="card">
               <div class="card-header">
@@ -17,16 +17,16 @@
                 <div class="card-body">
                   {{csrf_field()}}
                   <input type="hidden" name="id" value="{{ $user->id }}">
-                  <div class="form-group">
+                  <div class="form-group mb-3">
                       <label>Nombre Usuario</label>
                       <input type="text" class="form-control" name="name" value="{{$user->name}}" required>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group mb-3">
                       <label>Email</label>
                       <input type="text" class="form-control" name="email"  value="{{$user->email}}" required>
                   </div>
                   @if ($user->id)
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <div class="form-group form-check mb-1">
                           <input type="checkbox" class="form-check-input" name="newpassword" id="renovar" value="1">
                           <label class="form-check-label" for="renovar">Renovar Password</label>
@@ -34,12 +34,11 @@
                         <input type="text" class="form-control" name="password" id="password" length="6" disabled>
                     </div>
                   @else
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label>Password</label>
                         <input type="text" class="form-control" name="password" length="6" required>
                     </div>
                   @endif
-                  <br>
                 </div>
                 <div class="card-footer d-flex  justify-content-between">
                   <button type="submit" class="btn btn-success ">

@@ -17,7 +17,7 @@
 	    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <style>
             html{
-                background: url({{url('/img/background2.svg')}})
+                background: url({{url('/img/bg-dark.svg')}})
             }
             body{
                 font-family: 'Poppins', sans-serif;
@@ -125,12 +125,12 @@
 
             .menu-collapse{
                 display: block;
-                padding: 0.8rem 1rem;
                 color: #e0e0e0;
                 text-decoration: none;
                 transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
                 cursor: pointer;
-                font-size:0.8rem;
+                padding: 0.9rem 1rem;
+                font-size:0.9rem;
             }
             .menu-collapse:hover{
                 color: #f5f5f5;
@@ -142,12 +142,12 @@
             }
             .menu-link{
                 display: block;
-                padding: 0.8rem 1rem;
                 color: #e0e0e0;
                 text-decoration: none;
                 transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
                 cursor: pointer;
-                font-size:0.8rem;
+                padding: 0.9rem 1rem;
+                font-size:0.9rem;
             }
             
             .menu-link:hover{

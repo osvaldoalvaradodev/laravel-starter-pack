@@ -16,7 +16,7 @@
 	    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <style>
             html{
-                background: url({{url('/img/background2.svg')}})
+                background: url({{url('/img/bg-dark.svg')}})
             }
         </style>
     </head>
@@ -24,7 +24,7 @@
         <div class="card text-white m-2 shadow" style="background: #323233">
             <div class="row m-0">
                 <div class="col-12 col-sm-6 p-0" align="center">
-                    <img src="{{url('/img/Atenotek-bg-dark.svg')}}" style="max-width:100%;padding:2rem;max-height:100%;">
+                    <img src="{{url('/img/logo-bg-dark.svg')}}" style="max-width:100%;padding:2rem;max-height:100%;">
                 </div>
                 <div class="col-12 col-sm-6 p-0">
                     <div class="card-body ">
