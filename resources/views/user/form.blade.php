@@ -13,7 +13,7 @@
                     @endif
                 </h2>
               </div>
-              <form method="post" action="{{url('config/users/store')}}">
+              <form method="post" action="{{url('admin/user/store')}}">
                 <div class="card-body">
                   {{csrf_field()}}
                   <input type="hidden" name="id" value="{{ $user->id }}">

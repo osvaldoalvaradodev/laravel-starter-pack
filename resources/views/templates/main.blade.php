@@ -195,15 +195,18 @@
             #notificaciones::after{
                 display: none;
             }
+            .navbar-color{
+                background-color: #171820;
+            }
 
         </style>
     </head>
     <body>
-        <nav class="navbar text-white bg-dark sticky-top">
+        <nav class="navbar text-white sticky-top navbar-color">
             <div class="container-fluid">
                 <div>
-                    <a class="navbar-brand text-white" href="{{ url('/') }}" align="center">L<span class="d-none d-sm-inline">aravel </span>S<span class="d-none d-sm-inline">tarter </span>P<span class="d-none d-sm-inline">ack</span></a>
-                    <button class="btn text-white float-left" type="button" id="sidebar-toggle">
+                    <a class="navbar-brand text-white me-2" href="{{ url('/') }}" align="center"><img height="38" src="{{ url('/img/favicon.svg') }}"/> <img class="d-none d-sm-inline" height="20" src="{{ url('/img/navbar-text.svg') }}"/></a>
+                    <button class="btn text-white float-left p-1" type="button" id="sidebar-toggle">
                         <i class="material-icons">chevron_right</i>
                     </button>
                 </div>
@@ -238,19 +241,19 @@
             </div>
         </nav>
         <div id="scaffold">
-            <div id="sidebar" class="bg-dark">
+            <div id="sidebar" class="navbar-color">
                 <div id="sidebar-content">
                     <ul class="nav flex-column">
                         <a class="menu-link {{(request()->is('/')) ? 'active' : '' }}" href="{{ url('/') }}">
                             <i class="material-icons">home</i> Inicio
                         </a>
                         <li class="nav-item">
-                            <a class="menu-collapse  {{(request()->is('config/*')) ? 'active' : '' }}">
+                            <a class="menu-collapse  {{(request()->is('admin/*')) ? 'active' : '' }}">
                                 <i class="material-icons">settings</i> Configurar
                             </a>
                             <div class="menu-items text-white" >
-                                <a class="menu-link {{(request()->is('config/users')) ? 'active' : '' }}" href="{{ url('config/users') }}"><i class="material-icons">person</i> Usuarios</a>
-                                <a class="menu-link {{(request()->is('config/clients')) ? 'active' : '' }}" href="{{ url('config/clients') }}"><i class="material-icons">domain</i> Clientes</a>
+                                <a class="menu-link {{(request()->is('admin/users')) ? 'active' : '' }}" href="{{ url('admin/user') }}"><i class="material-icons">person</i> Usuarios</a>
+                                <a class="menu-link {{(request()->is('admin/client')) ? 'active' : '' }}" href="{{ url('admin/client') }}"><i class="material-icons">domain</i> Clientes</a>
                             </div>
                         </li>
                         <li class="nav-item">
