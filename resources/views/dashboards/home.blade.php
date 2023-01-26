@@ -37,10 +37,10 @@
             padding: 0;
         }
     </style>
-    <div>
+    <div class="m-4">
         <div class="row">
             <div class="col ">
-                <div class="card bg-success text-white m-2" align="center">
+                <div class="card navbar-color shadow m-2 text-success" align="center">
                     <div class="card-header">
                         Trabajos realizados
                     </div>
@@ -50,57 +50,57 @@
                 </div>
             </div>
             <div class="col ">
-            <div class="card bg-danger text-white m-2" align="center">
-                <div class="card-header">
-                    Trabajos realizados
+                <div class="card navbar-color shadow m-2 text-danger" align="center">
+                    <div class="card-header">
+                        Trabajos realizados
+                    </div>
+                    <div class="card-body">
+                        <h1>10</h1>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h1>10</h1>
-                </div>
-            </div>
             </div>
             <div class="col ">
-            <div class="card bg-warning text-white m-2" align="center">
-                <div class="card-header">
-                    Trabajos realizados
+                <div class="card navbar-color shadow m-2 text-warning" align="center">
+                    <div class="card-header">
+                        Trabajos realizados
+                    </div>
+                    <div class="card-body">
+                        <h1>10</h1>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h1>10</h1>
-                </div>
-            </div>
             </div>
             <div class="col ">
-            <div class="card bg-info text-white m-2" align="center">
-                <div class="card-header">
-                    Trabajos realizados
+                <div class="card navbar-color shadow m-2 text-info" align="center">
+                    <div class="card-header">
+                        Trabajos realizados
+                    </div>
+                    <div class="card-body ">
+                        <h1>10</h1>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h1>10</h1>
-                </div>
-            </div>
             </div>
         </div>
         <div class="row m-0">
             <div class="col ">
-            <div class="card bg-ligth text-black m-2  col" align="center">
-                <div class="card-header">
-                    Trabajos realizados
-                </div>
-                <div class="card-body">
-                    <div class="graf-container">
-                        <div class="graf-legend">
-                            
-                        </div>
-                        <div class="graf-bar">
-                            <canvas id="myChart"></canvas>
+                <div class="card text-white m-2 col navbar-color shadow" align="center">
+                    <div class="card-header">
+                        Trabajos realizados
+                    </div>
+                    <div class="card-body">
+                        <div class="graf-container">
+                            <div class="graf-legend">
+                                
+                            </div>
+                            <div class="graf-bar">
+                                <canvas id="myChart"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
 
             <div class="col ">
-                <div class="card bg-ligth text-black m-2  col" align="center">
+                <div class="card text-white m-2 col navbar-color shadow" align="center">
                     <div class="card-header">
                         Trabajos realizados
                     </div>
@@ -116,6 +116,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>
@@ -129,12 +130,12 @@
                 datasets: [{
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
+                        'rgba(255, 99, 132, 0.4)',
+                        'rgba(54, 162, 235, 0.4)',
+                        'rgba(255, 206, 86, 0.4)',
+                        'rgba(75, 192, 192, 0.4)',
+                        'rgba(153, 102, 255, 0.4)',
+                        'rgba(255, 159, 64, 0.4)'
                     ],
                     borderColor: [
                         'rgba(255, 99, 132, 1)',
@@ -160,6 +161,14 @@
                         label: 'Dataset 1',
                         data: [12, 19, 3, 5, 2, 3],
                         backgroundColor: [
+                            'rgba(255, 99, 132, 0.4)',
+                            'rgba(54, 162, 235, 0.4)',
+                            'rgba(255, 206, 86, 0.4)',
+                            'rgba(75, 192, 192, 0.4)',
+                            'rgba(153, 102, 255, 0.4)',
+                            'rgba(255, 159, 64, 0.4)'
+                        ],
+                        borderColor: [
                             'rgba(255, 99, 132, 1)',
                             'rgba(54, 162, 235, 1)',
                             'rgba(255, 206, 86, 1)',

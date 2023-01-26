@@ -16,9 +16,13 @@
         <!-- Axios -->
 	    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <style>
+            html{
+                background: url({{url('/img/bg-dark.svg')}})
+            }
             body{
                 font-family: 'Poppins', sans-serif;
                 min-height: 100vh;
+                background: none;
             }
             #scaffold{
                 display:flex;
@@ -32,7 +36,7 @@
                 min-height: 100%;
                 max-height: 100%;
                 width: 100%;
-                padding-left:250px;
+                padding-left:200px;
                 color:black;
                 transition: padding-left 0.8s;
             }
@@ -52,17 +56,19 @@
                 display: block;
                 position:fixed;
                 height: 100vh;
-                width: 250px;
+                width: 200px;
                 float:left;
                 left:0px;
                 transition: left 0.8s;
-                z-index: 30;
+                z-index: 30;                
+                -webkit-box-shadow: 35px 38px 23px -37px #000000;
+                box-shadow: 35px 38px 23px -37px #000000;
             }
             #sidebar-content{
                 display: block;
                 position:relative;
                 height: 100vh;
-                width: 250px;
+                max-width: 100%;
                 z-index: 40;
                 overflow-y: overlay;
             }
@@ -72,7 +78,7 @@
                     padding-left:0px;
                 }
                 #sidebar{
-                    left:-250px;
+                    left:-200px;
                     -webkit-box-shadow:none;
                     box-shadow:none
                 }
@@ -80,10 +86,23 @@
                     left:0px;
                     -webkit-box-shadow: 35px 38px 23px -37px #000000;
                     box-shadow: 35px 38px 23px -37px #000000;
-                    
                 }
                 #sidebar-toggle{
                     display: inline-block;
+                }
+            }
+            
+            @media print {
+                #scaffold-body{
+                    padding-left:0px;
+                }
+                
+                #sidebar{
+                    display: none;
+                }
+
+                .navbar{
+                    display: none;
                 }
             }
             
@@ -106,26 +125,29 @@
 
             .menu-collapse{
                 display: block;
-                padding: 0.5rem 1rem;
                 color: #e0e0e0;
                 text-decoration: none;
                 transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
                 cursor: pointer;
+                padding: 0.9rem 1rem;
+                font-size:0.9rem;
             }
             .menu-collapse:hover{
                 color: #f5f5f5;
             }
             
             .menu-collapse.active{
-                color: white;
+                color: rgb(34, 114, 160);
+                background: rgba(0,0,0,0.2);
             }
             .menu-link{
                 display: block;
-                padding: 0.5rem 1rem;
                 color: #e0e0e0;
                 text-decoration: none;
                 transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
                 cursor: pointer;
+                padding: 0.9rem 1rem;
+                font-size:0.9rem;
             }
             
             .menu-link:hover{
@@ -133,7 +155,7 @@
             }
             
             .menu-link.active{
-                color: white;
+                color: rgb(34, 114, 160);
             }
 
             .menu-collapse::after{
@@ -145,7 +167,8 @@
                 border-right: 0.3em solid transparent;
                 border-bottom: 0;
                 border-left: 0.3em solid transparent;
-                transition: border-top .15s ease-in-out,border-bottom .15s ease-in-out
+                transition: border-top .15s ease-in-out,border-bottom .15s ease-in-out;
+                border-radius:18px;
             }
             .menu-collapse.active::after{
                 display: inline-block;
@@ -161,8 +184,9 @@
                 height: 0;
                 transition: height 1s ease-in-out;
                 overflow-y: hidden;
-                padding-left: 10px;
-                background: rgba(0,0,0,0.2)
+                padding-left: 8px;
+                background: rgba(0,0,0,0.2);
+                border-radius:0 0 0px 18px;
             }            
             .menu-collapse.active + .menu-items{
                 height: auto;
@@ -171,15 +195,18 @@
             #notificaciones::after{
                 display: none;
             }
+            .navbar-color{
+                background-color: #171820;
+            }
 
         </style>
     </head>
-    <body class="bg-dark">
-        <nav class="navbar text-white">
+    <body>
+        <nav class="navbar text-white sticky-top navbar-color">
             <div class="container-fluid">
                 <div>
-                    <a class="navbar-brand text-white" href="{{ url('/') }}" align="center">L<span class="d-none d-sm-inline">aravel </span>S<span class="d-none d-sm-inline">tarter </span>P<span class="d-none d-sm-inline">ack</span></a>
-                    <button class="btn text-white float-left" type="button" id="sidebar-toggle">
+                    <a class="navbar-brand text-white me-2" href="{{ url('/') }}" align="center"><img height="38" src="{{ url('/img/favicon.svg') }}"/> <img class="d-none d-sm-inline" height="20" src="{{ url('/img/navbar-text.svg') }}"/></a>
+                    <button class="btn text-white float-left p-1" type="button" id="sidebar-toggle">
                         <i class="material-icons">chevron_right</i>
                     </button>
                 </div>
@@ -214,19 +241,19 @@
             </div>
         </nav>
         <div id="scaffold">
-            <div id="sidebar" class="bg-dark">
+            <div id="sidebar" class="navbar-color">
                 <div id="sidebar-content">
                     <ul class="nav flex-column">
                         <a class="menu-link {{(request()->is('/')) ? 'active' : '' }}" href="{{ url('/') }}">
                             <i class="material-icons">home</i> Inicio
                         </a>
                         <li class="nav-item">
-                            <a class="menu-collapse {{(request()->is('config/*')) ? 'active' : '' }}">
+                            <a class="menu-collapse  {{(request()->is('admin/*')) ? 'active' : '' }}">
                                 <i class="material-icons">settings</i> Configurar
                             </a>
                             <div class="menu-items text-white" >
-                                <a class="menu-link {{(request()->is('config/users')) ? 'active' : '' }}" href="{{ url('config/users') }}"><i class="material-icons">person</i> Usuarios</a>
-                                <a class="menu-link {{(request()->is('config/clients')) ? 'active' : '' }}" href="{{ url('config/clients') }}"><i class="material-icons">domain</i> Clientes</a>
+                                <a class="menu-link {{(request()->is('admin/users')) ? 'active' : '' }}" href="{{ url('admin/user') }}"><i class="material-icons">person</i> Usuarios</a>
+                                <a class="menu-link {{(request()->is('admin/client')) ? 'active' : '' }}" href="{{ url('admin/client') }}"><i class="material-icons">domain</i> Clientes</a>
                             </div>
                         </li>
                         <li class="nav-item">

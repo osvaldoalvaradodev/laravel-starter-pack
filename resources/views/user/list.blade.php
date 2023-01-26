@@ -9,19 +9,18 @@
     }
 </style>
 @section('content')
-    <div class="card">
-        
+    <div class="card m-4 navbar-color text-white">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
                 <h2><i class="material-icons fs-1">people</i> Lista de Usuarios</h2>
-                <a  href="{{ url('config/users/add')}}" class="btn btn-success">
+                <a  href="{{ url('admin/user/add')}}" class="btn btn-success">
                     <i class="material-icons">add</i>
                     Agregar Usuario
                 </a>
             </div>
         </div>
         <div class="card-body">
-            <table id="tabla" class="table table-striped table-sm table-bordered bg-white" style="width:100%" >
+            <table id="tabla" class="table table-sm table-bordered text-white" style="width:100%" >
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -103,13 +102,13 @@
                 },     
                 "processing" : true,
                 "serverSide" : true,
-                "ajax" : "{{ url('config/users/getdata') }}",
+                "ajax" : "{{ url('admin/user/getdata') }}",
                 "columns": [
                     { "data": "name","width":"60%"},
                     { "data": "email","width":"40%"},
                     { data: "id", render : function ( data, type, row, meta ) {
                         var buttons = '<div class="btn-group" role="group" aria-label="Basic mixed styles example">';
-                        buttons+= '<a class="btn btn-primary" href="{{ url("config/users")}}/'+data+'" title="Editar"><i class="material-icons">edit</i></a>';
+                        buttons+= '<a class="btn btn-primary" href="{{ url("admin/user")}}/'+data+'" title="Editar"><i class="material-icons">edit</i></a>';
                         buttons+= '<button type="button" class="btn btn-danger" onclick="deleteShow('+data+')" title="Eliminar"><i class="material-icons">delete</i></button>';
                         buttons+= '</div>';
                         return buttons;

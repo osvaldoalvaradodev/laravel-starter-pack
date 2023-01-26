@@ -49,7 +49,7 @@ class SesionController extends Controller
     public function passwordChange(){
         //busca el usuario en la bd
         $user = Auth::user();
-        return view('users.passwordchange' , compact('user'));
+        return view('user.passwordchange' , compact('user'));
     }
 
     public function passwordChangeProcess(Request $request){

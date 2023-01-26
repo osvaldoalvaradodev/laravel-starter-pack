@@ -20,10 +20,18 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('sesion/logout'                          , 'SesionController@logout');
 
     //Rutas de Usuarios
-    Route::get('config/users'                           , 'UserController@list')->name('users.list');
-    Route::get('config/users/getdata'                   , 'UserController@getdata');
-    Route::get('config/users/add'                       , 'UserController@add');
-    Route::get('config/users/{user_id}'                 , 'UserController@edit');
-    Route::post('config/users/store'                    , 'UserController@store');
+    Route::get('admin/user'                           , 'UserController@list')->name('user.list');
+    Route::get('admin/user/getdata'                   , 'UserController@getdata');
+    Route::get('admin/user/add'                       , 'UserController@add');
+    Route::get('admin/user/{user_id}'                 , 'UserController@edit');
+    Route::post('admin/user/store'                    , 'UserController@store');
+
+    //Rutas Client
+    Route::get('admin/client',            'ClientController@list')->name('clients.list');
+    Route::get('admin/client/getdata',    'ClientController@getdata');
+
+    Route::get('admin/client/{id}',           'ClientController@select');
+    Route::get('admin/client/{id}/delete',    'ClientController@delete');
+    Route::post('admin/client/store',         'ClientController@store');
 
 });

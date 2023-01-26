@@ -15,7 +15,7 @@ class UserController extends Controller
 {    
     
     public function list(){
-        return view('users.list');
+        return view('user.list');
     }
 
     function getdata(){
@@ -25,12 +25,12 @@ class UserController extends Controller
 
     public function add(){
         $user = new User;
-        return view('users.form',compact('user'));
+        return view('user.form',compact('user'));
     }
 
     public function edit($user_id){
         $user = User::findOrFail($user_id);
-        return view('users.form',compact('user'));
+        return view('user.form',compact('user'));
     }
     
     public function store(Request $request){
@@ -45,7 +45,7 @@ class UserController extends Controller
             }
             $user->save();
             activitypush('AGREGA', 'PERSONA AGREGA USUARIO');
-            return redirect()->route('users.list')->with('success', 'Usuario editado correctamente');
+            return redirect()->route('user.list')->with('success', 'Usuario editado correctamente');
         }else{
             //Si no, Crea un Item        
             $user = new User;
@@ -53,7 +53,7 @@ class UserController extends Controller
             $user->password = bcrypt($request->password);
             $user->save();
             activitypush('EDITA', 'PERSONA EDITA USUARIO');
-            return redirect()->route('users.list')->with('success', 'Usuario creado correctamente');
+            return redirect()->route('user.list')->with('success', 'Usuario creado correctamente');
         }
     }
 
@@ -64,9 +64,9 @@ class UserController extends Controller
             $user->email=null;
             $user->enabled=0;
             $user->save();
-            return redirect()->route('users.list')->with('success', 'Usuario eliminado correctamente');
+            return redirect()->route('user.list')->with('success', 'Usuario eliminado correctamente');
         } catch (\Throwable $th) {
-            return redirect()->route('users.list')->with('error', 'Problema al eliminar usuario');
+            return redirect()->route('user.list')->with('error', 'Problema al eliminar usuario');
         }
     }
     
